@@ -141,14 +141,46 @@ python inference_video.py --labelmap_path label_map.pbtxt --model_path experimen
 ## Submission Template
 
 ### Project overview
-This section should contain a brief description of the project and what we are trying to achieve. Why is object detection such an important component of self driving car systems?
+
+Since the increase of vehicles on the road, human drivers may fail to operate for a long time and this causes risk in driving safety.
+With the help of the technology, currently self driving or driver assistant systems are quite useful.
+Most of the used techniques to enable these features is computer vision (specifically environment detection) via deep learning.
 
 ### Set up
-This section should contain a brief description of the steps to follow to run the code for this repository.
+You should have the data already present in /home/workspace/data/ directory to explore the dataset. This is the most important task of our machine learning project.
+
+Display Data:
+
+The datset can be displayed in Exploratory Data Analysis notebook.
+
+Edit the config file:
+
+cd /home/workspace/experiments/pretrained_model/
+wget http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz
+tar -xvzf ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz
+rm -rf ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz
+
+cd /home/workspace/
+python edit_config.py --train_dir /home/workspace/data/train/ --eval_dir /home/workspace/data/val/ --batch_size 2 --checkpoint /home/workspace/experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/checkpoint/ckpt-0 --label_map /home/workspace/experiments/label_map.pbtxt
+Note: A new config file called pipeline_new.config will be created in the /home/workspace/ directory. Move this file to the /home/workspace/experiments/reference/ directory.
+
+Model Training:
+python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config
+
+Model Evaluation:
+python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config --checkpoint_dir=experiments/reference/
+
+Export the trained model:
+python experiments/exporter_main_v2.py --input_type image_tensor --pipeline_config_path experiments/reference/pipeline_new.config --trained_checkpoint_dir experiments/reference/ --output_directory experiments/reference/exported/
+
+Create an animation:
+python inference_video.py --labelmap_path label_map.pbtxt --model_path experiments/reference/exported/saved_model --tf_record_path data/test/segment-12200383401366682847_2552_140_2572_140_with_camera_labels.tfrecord --config_path experiments/reference/pipeline_new.config --output_path animation.gif
+
 
 ### Dataset
 #### Dataset analysis
 This section should contain a quantitative and qualitative description of the dataset. It should include images, charts and other visualizations.
+
 #### Cross validation
 This section should detail the cross validation strategy and justify your approach.
 

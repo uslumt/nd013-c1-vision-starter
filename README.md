@@ -179,14 +179,15 @@ python inference_video.py --labelmap_path label_map.pbtxt --model_path experimen
 
 ### Dataset
 #### Dataset analysis
-This section should contain a quantitative and qualitative description of the dataset. It should include images, charts and other visualizations.
+As it can be seen in the data exploration notebook there are {vehicle: 1728477, pedestrian: 486237, cyclist: 12432} number of classes in size of 100000 batch
 
 #### Cross validation
-This section should detail the cross validation strategy and justify your approach.
+
+I loaded data train, test, validation datasets from the given dataset repo.
 
 ### Training
 #### Reference experiment
-This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
+in our first training, the loss did not really decrease since the initial parameters were not suitable.
 
 #### Improve on the reference
-This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
+We may add some different data augmentation techniques such as, adding gaussian noise to dataset.

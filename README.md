@@ -52,7 +52,6 @@ This project is divided in the following sections:
         |-- README.md
 ~~~~~~~
 
-
 ## Data
 
 The dataset presented in this project is from [Waymo Open dataset](https://waymo.com/open/) and contains of urban environments images.
@@ -106,9 +105,9 @@ Following steps should be taken into account in order to run and complete the pr
 Exploring the dataset can be accomplished in this jupyter notebook. By displaying the images, we can get an overall picture about the data available in `data\` folder. Another task that we are having in this notebook is to create color-coded bounding boxes and annotate them for each class object using `matplotlib` library. In this work, red correspondent to vehicles, blue to pedestrians and green for cyclist class.
 
 <p float="left">
-  <img src="examples/training/random_train_0.png" width="300" />
-  <img src="examples/training/random_train_5.png" width="300" />
-  <img src="examples/training/random_train_9.png" width="300" />
+  <img src="examples/training/random_train_0.png"  />
+  <img src="examples/training/random_train_5.png"  />
+  <img src="examples/training/random_train_9.png"  />
 </p>
 
 

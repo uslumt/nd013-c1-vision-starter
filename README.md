@@ -164,3 +164,4 @@ After retraining with augmented data, it can be seen that the loss in compare to
 <img src="experiments/reference/experiment1/figures/2.png"/>
 <img src="experiments/reference/experiment1/figures/3.png"/>
 
+# Note: In the second experiment run, there is a feedback like a line because during training the device run out of storage and it had to interapt the training at the step number 506.

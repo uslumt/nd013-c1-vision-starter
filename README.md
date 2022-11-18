@@ -158,10 +158,14 @@ python -m tensorboard.main --logdir experiments/reference/experiment_1/
 In the image above, the loss trend of the training is shown.
 as it can be seen that the model has high training loss and it means it is too simple (underfit), In order to improve the model performance, we can increase the epoch numbers and as the chance of overfitting might increase then it is suggested to add some augmentations or apply suitable augmentation methods available in  `preprocessor.proto` from Tf object detection API, we will work on the provided jupyter notebook `Explore augmentations.ipynb`.
 
-After retraining with augmented data, it can be seen that the loss in compare to the previous non-augmentaed model, significantly decreases 
+Augmentation techniques used:
++ random_adjust_brightness with max_delta: 0.35
++ NormalizeImage with original_minval = 2, original_maxval = 3, target_minval = 4 target_maxval = 2 
+
+After retraining with augmented data, it can be seen that the loss significantly decreased.
 
 <img src="experiments/reference/experiment1/figures/1.png"/>
 <img src="experiments/reference/experiment1/figures/2.png"/>
 <img src="experiments/reference/experiment1/figures/3.png"/>
 
-# Note: In the second experiment run, there is a feedback like a line because during training the device run out of storage and it had to interapt the training at the step number 506.
+## Note: In the second experiment run, there is a feedback like a line because during training the device run out of storage and it had to interapt the training at the step number 506.

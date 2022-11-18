@@ -42,11 +42,11 @@ This project is divided in the following sections:
                                         |-- saved_model.pb  # tensorflow SavedModel format
                                 |-- pipeline.config
         |-- edit_config.py
-        |-- Exploratory Data Analysis.ipynb                 # EDA notebook for exploring the data
+        |-- Exploratory Data Analysis.ipynb                 # notebook for exploring the data
         |-- Explore augmentations.ipynb                     # augmentation notebook for exploring optimal required augmentations
         |-- filenames.txt
         |-- inference_video.py
-        |-- launch_jupyter.sh                               # script for running jupyter from linux in classroom environment
+        |-- launch_jupyter.sh                               # scripts for running the config and notebook files from linux in classroom environment
         |-- requirements.txt
         |-- utils.py
         |-- README.md

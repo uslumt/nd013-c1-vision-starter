@@ -20,13 +20,14 @@ This project is divided in the following sections:
 ## File Description
 ~~~~~~~
         object-detection-in-an-urban-environment
-        |-- data                                            #tfrecord sample files for object detection api format
+        |-- data                                            
                 |-- test
                 |-- val
                 |-- train
         |-- examples                                        # example urban images containing their bounding boxes
-                |-- training_examples
-                |-- validation examples
+                |-- training
+                |-- tesing
+                |-- validating
         |-- experiments
                 |-- exporter_main_v2.py                     # tool for exporting object detection inference
                 |-- label_map.pbtxt                         # label of the classes
@@ -35,8 +36,7 @@ This project is divided in the following sections:
                         |-- experiment0
                                 |-- pipeline_new.config     # api config for 1st run
                         |-- experiment1
-                                |-- pipeline.config         # api config for 2st run
-                        
+                                |-- pipeline.config         # api config for 2nd run              
                         |-- exported
                                 |-- saved_model
                                         |-- saved_model.pb  # tensorflow SavedModel format
@@ -46,7 +46,7 @@ This project is divided in the following sections:
         |-- Explore augmentations.ipynb                     # augmentation notebook for exploring optimal required augmentations
         |-- filenames.txt
         |-- inference_video.py
-        |-- launch_jupyter.sh                               # scripts for running the config and notebook files from linux in classroom environment
+        |-- launch_jupyter_tensorboard.sh                   # scripts for running the config and notebook files from linux in classroom environment
         |-- requirements.txt
         |-- utils.py
         |-- README.md
@@ -74,8 +74,6 @@ data\test: which contains of 3 tfrecord files
 * Python 3.8+
 * Visualization: matplotlib
 * Model training: tensorflow
-* Extra: numpy
-
 
 <a name="installation"></a>
 ### Installation
